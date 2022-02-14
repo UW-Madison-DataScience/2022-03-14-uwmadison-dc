@@ -397,7 +397,25 @@ please preview your site before committing, and make sure to run
 'tools/check' as well.
 {% endcomment %}
 
-<h2 id="setup">Setup</h2>
+<h2 id="setup">Workshop Setup</h2>
+{% comment %}
+These are the installation instructions for the tools used
+during the workshop.
+{% endcomment %}
+
+{% if site.carpentry == "swc" %}
+{% include swc/setup.html %}
+{% elsif site.carpentry == "dc" %}
+{% include dc/setup.html %}
+{% elsif site.carpentry == "lc" %}
+{% include lc/setup.html %}
+{% elsif site.carpentry == "incubator" %}
+Please check the "Setup" page of
+[the lesson site]({{ site.incubator_lesson_site }}) for instructions to follow
+to obtain the software and data you will need to follow the lesson.
+{% endif %}
+
+<h2 id="setup">Zoom Setup</h2>
 
 <p>
   To participate in a
@@ -430,21 +448,4 @@ to include the relevant installation instrucctions.
 {% endcomment %}
 {% if online != "false" %}
 {% include install_instructions/videoconferencing.html %}
-{% endif %}
-
-{% comment %}
-These are the installation instructions for the tools used
-during the workshop.
-{% endcomment %}
-
-{% if site.carpentry == "swc" %}
-{% include swc/setup.html %}
-{% elsif site.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif site.carpentry == "lc" %}
-{% include lc/setup.html %}
-{% elsif site.carpentry == "incubator" %}
-Please check the "Setup" page of
-[the lesson site]({{ site.incubator_lesson_site }}) for instructions to follow
-to obtain the software and data you will need to follow the lesson.
 {% endif %}
